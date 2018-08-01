@@ -3995,19 +3995,7 @@ namespace FourSlashInterface {
 
     export class VerifyNegatable {
         public not: VerifyNegatable;
-        public allowedClassElementKeywords = [
-            "public",
-            "private",
-            "protected",
-            "static",
-            "abstract",
-            "readonly",
-            "get",
-            "set",
-            "constructor",
-            "async"
-        ];
-        public allowedConstructorParameterKeywords = [
+        public allowedConstructorParameterKeywords = [//!
             "public",
             "private",
             "protected",
@@ -4050,12 +4038,6 @@ namespace FourSlashInterface {
 
         public completionListIsEmpty() {
             this.state.verifyCompletionListIsEmpty(this.negative);
-        }
-
-        public completionListContainsClassElementKeywords() {
-            for (const keyword of this.allowedClassElementKeywords) {
-                this.completionListContains(keyword, keyword, /*documentation*/ undefined, "keyword");
-            }
         }
 
         public completionListContainsConstructorParameterKeywords() {
@@ -4757,6 +4739,9 @@ namespace FourSlashInterface {
 
         export const typeKeywords: ReadonlyArray<string> =
             ["null", "void", "any", "boolean", "keyof", "never", "number", "object", "string", "symbol", "undefined", "unique", "unknown"];
+
+        export const classElementKeywords: ReadonlyArray<string> =
+            ["private", "protected", "public", "static", "abstract", "async", "constructor", "get", "readonly", "set"];
     }
 
     export interface ReferenceGroup {
