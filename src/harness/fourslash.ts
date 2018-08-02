@@ -927,6 +927,7 @@ namespace FourSlash {
             }
 
             if (kind !== undefined) assert.equal(actual.kind, kind);
+            if (typeof expected !== "string" && "kindModifiers" in expected) assert.equal(actual.kindModifiers, expected.kindModifiers);
 
             assert.equal(actual.hasAction, hasAction);
             assert.equal(actual.isRecommended, isRecommended);
@@ -4765,6 +4766,7 @@ namespace FourSlashInterface {
         readonly hasAction?: boolean, // If not specified, will assert that this is false.
         readonly isRecommended?: boolean; // If not specified, will assert that this is false.
         readonly kind?: string, // If not specified, won't assert about this
+        readonly kindModifiers?: string;
         readonly text: string;
         readonly documentation: string;
         readonly sourceDisplay?: string;
